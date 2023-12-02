@@ -14,48 +14,48 @@ if errorlevel 1 (set _Ecode_Task_cstrike=False) else (set _Ecode_Appcation_Steam
 
 :CheckFolder
 if exist "%_#APPDATA#%\Log" (
-      	echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]====================Æô¶¯³ÌĞò====================>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
+      	echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]====================å¯åŠ¨ç¨‹åº====================>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
       	) else (
       	md "%_#APPDATA#%\Log"
       	)
 if exist "%_#APPDATA#%" (
-      	echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]´´½¨ LocalAppData Íê³É>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
+      	echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]åˆ›å»º LocalAppData å®Œæˆ>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
 	    ) else (
-		md "%_#APPDATA#%" & echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]´´½¨ LocalAppData Íê³É>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
+		md "%_#APPDATA#%" & echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]åˆ›å»º LocalAppData å®Œæˆ>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
 	    )
 if exist "%_#APPDATA#%\Backup" (
-      	set _backup=%_#APPDATA#%\Backup& echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]´´½¨ Backup Íê³É>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
+      	set _backup=%_#APPDATA#%\Backup& echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]åˆ›å»º Backup å®Œæˆ>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
 	    ) else (
-		md "%_#APPDATA#%\Backup" & echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]´´½¨ Backup Íê³É>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
+		md "%_#APPDATA#%\Backup" & echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]åˆ›å»º Backup å®Œæˆ>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
 	    )
 :Backup
 copy /y "%~f0" "%_backup%" >NUL 2>NUL
 if errorlevel 1 set _Ecode_main= ERROR_COPY & goto CrashCopy
-if errorlevel 0 echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]¸´ÖÆ Ö÷³ÌĞò Íê³É>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
+if errorlevel 0 echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]å¤åˆ¶ ä¸»ç¨‹åº å®Œæˆ>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
 copy /y %~dp0\cstrike\resource\RunGameResource.res "%_backup%" >NUL 2>NUL
 if errorlevel 1 set _Ecode_main= ERROR_COPY & goto CrashCopy
-if errorlevel 0 echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]¸´ÖÆ ÓÎÏ·ÔËĞĞ×ÊÔ´°ü Íê³É>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
+if errorlevel 0 echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]å¤åˆ¶ æ¸¸æˆè¿è¡Œèµ„æºåŒ… å®Œæˆ>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
 ren "%_backup%\Counter-Strike-1.6-vSteam.bat" "Bak_%date:~0,4%_%date:~5,2%_%date:~8,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%.bat"
 :CheckFile
 if not exist "hl.exe" (
 	goto CrashHLexe 
 		) else (
-		reg add "HKCU\Software\Rainbow-SPY\Counter-Strike" /v "InstallPlace" /d %~dp0 /f & echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]Ğ´Èë×¢²á±í InstallPlace Íê³É>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
+		reg add "HKCU\Software\Rainbow-SPY\Counter-Strike" /v "InstallPlace" /d %~dp0 /f & echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]å†™å…¥æ³¨å†Œè¡¨ InstallPlace å®Œæˆ>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
 		)
 if not exist ".\cstrike\cl_dlls\client.dll" (
 		goto CrashEngine
 		) else (
-		reg add "HKCU\Software\Rainbow-SPY\Counter-Strike" /v "Client_DLL" /d %~dp0cstrike\cl_dlls\client.dll /f & echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]Ğ´Èë×¢²á±í Client_DLL Íê³É>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
+		reg add "HKCU\Software\Rainbow-SPY\Counter-Strike" /v "Client_DLL" /d %~dp0cstrike\cl_dlls\client.dll /f & echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]å†™å…¥æ³¨å†Œè¡¨ Client_DLL å®Œæˆ>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
 		)
 if not exist "sw.dll" (
 		goto CrashEngine
 		) else (
-		reg add "HKCU\Software\Rainbow-SPY\Counter-Strike" /v "Engine_sw.dll" /d %~dp0sw.dll /f & echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]Ğ´Èë×¢²á±í sw.dll Íê³É>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
+		reg add "HKCU\Software\Rainbow-SPY\Counter-Strike" /v "Engine_sw.dll" /d %~dp0sw.dll /f & echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]å†™å…¥æ³¨å†Œè¡¨ sw.dll å®Œæˆ>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
 		)
 if not exist "hw.dll" (
 		goto CrashEngine
 		) else (
-		reg add "HKCU\Software\Rainbow-SPY\Counter-Strike" /v "Engine_hw.dll" /d %~dp0hw.dll /f & echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]Ğ´Èë×¢²á±í hw.dll Íê³É>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
+		reg add "HKCU\Software\Rainbow-SPY\Counter-Strike" /v "Engine_hw.dll" /d %~dp0hw.dll /f & echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]å†™å…¥æ³¨å†Œè¡¨ hw.dll å®Œæˆ>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
 		)
 if not exist "%_#APPDATA#%\certificate.ini" (
 		echo [certificate]>>%_#APPDATA#%\certificate.ini
@@ -65,65 +65,65 @@ if not exist "%_#APPDATA#%\certificate.ini" (
 :certificate
 certmgr.exe /c /add "Rainbow SPY.cer" /s root>NUL 2>NUL
 if errorlevel 1 set _Ecode_main=ERROR_NOT_INSTALL_CERTIFICATE & goto CrashCer
-if errorlevel 0 echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]µ¼Èë°²È«Ö¤Êé Íê³É>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log" & reg add "HKCU\Software\Rainbow-SPY\Counter-Strike" /v "Certificate_Time" /d %date:~0,4%.%date:~5,2%.%date:~8,2% %time:~0,2%:%time:~3,2%:%time:~6,2% /f & echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]Ğ´Èë×¢²á±í °²È«Ö¤ÊéÉúĞ§ÈÕÆÚ Íê³É>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log" & reg add "HKCU\Software\Rainbow-SPY\Counter-Strike" /v "Certificate_Root" /d True /f & echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]Ğ´Èë×¢²á±í °²È«Ö¤ÊéÉúĞ§ Íê³É>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log" & set _Ecode_Certificate=True & echo certificate=True>>%_#APPDATA#%\certificate.ini & echo certificate_place=root>>%_#APPDATA#%\certificate.ini & echo certificate_time_start=%date:~0,4%.%date:~5,2%.%date:~8,2% %time:~0,2%:%time:~3,2%:%time:~6,2%>>%_#APPDATA#%\certificate.ini
+if errorlevel 0 echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]å¯¼å…¥å®‰å…¨è¯ä¹¦ å®Œæˆ>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log" & reg add "HKCU\Software\Rainbow-SPY\Counter-Strike" /v "Certificate_Time" /d %date:~0,4%.%date:~5,2%.%date:~8,2% %time:~0,2%:%time:~3,2%:%time:~6,2% /f & echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]å†™å…¥æ³¨å†Œè¡¨ å®‰å…¨è¯ä¹¦ç”Ÿæ•ˆæ—¥æœŸ å®Œæˆ>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log" & reg add "HKCU\Software\Rainbow-SPY\Counter-Strike" /v "Certificate_Root" /d True /f & echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]å†™å…¥æ³¨å†Œè¡¨ å®‰å…¨è¯ä¹¦ç”Ÿæ•ˆ å®Œæˆ>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log" & set _Ecode_Certificate=True & echo certificate=True>>%_#APPDATA#%\certificate.ini & echo certificate_place=root>>%_#APPDATA#%\certificate.ini & echo certificate_time_start=%date:~0,4%.%date:~5,2%.%date:~8,2% %time:~0,2%:%time:~3,2%:%time:~6,2%>>%_#APPDATA#%\certificate.ini
 
 :2nd
 cls
-title & echo ³õÊ¼»¯.......
+title & echo åˆå§‹åŒ–.......
 color 0a
 set _el=%errorlevel% 
 if errorlevel 1 set _Ecode_main= ERROR_SET_REG & goto CrashSet
-if errorlevel 0 echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]ÉèÖÃ±äÁ¿ _el Íê³É>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
+if errorlevel 0 echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]è®¾ç½®å˜é‡ _el å®Œæˆ>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
 set _ver=Counter-Strike-1.6-vSteam
 if errorlevel 1 set _Ecode_main= ERROR_SET_REG & goto CrashSet
-if errorlevel 0 echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]ÉèÖÃ±äÁ¿ _ver Íê³É>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
+if errorlevel 0 echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]è®¾ç½®å˜é‡ _ver å®Œæˆ>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
 set _tag=SPY
 if errorlevel 1 set _Ecode_main= ERROR_SET_REG & goto CrashSet
-if errorlevel 0 echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]ÉèÖÃ±äÁ¿ _tag Íê³É>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
+if errorlevel 0 echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]è®¾ç½®å˜é‡ _tag å®Œæˆ>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
 set _line=-------------------------------------
 if errorlevel 1 set _Ecode_main= ERROR_SET_REG & goto CrashSet
-if errorlevel 0 echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]ÉèÖÃ±äÁ¿ _line Íê³É>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
+if errorlevel 0 echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]è®¾ç½®å˜é‡ _line å®Œæˆ>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
 set _Ecode_DLL_Engine_OpenGL=False       
 if errorlevel 1 set _Ecode_main= ERROR_SET_REG & goto CrashSet
-if errorlevel 0 echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]ÉèÖÃ±äÁ¿ _Ecode_DLL_Engine_OpenGL Íê³É>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"             
+if errorlevel 0 echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]è®¾ç½®å˜é‡ _Ecode_DLL_Engine_OpenGL å®Œæˆ>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"             
 set _Ecode_DLL_Engine_D3D=False
 if errorlevel 1 set _Ecode_main= ERROR_SET_REG & goto CrashSet
-if errorlevel 0 echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]ÉèÖÃ±äÁ¿ _Ecode_DLL_Engine_D3D Íê³É>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
+if errorlevel 0 echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]è®¾ç½®å˜é‡ _Ecode_DLL_Engine_D3D å®Œæˆ>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
 set _Ecode_DLL_Engine_Software=False
 if errorlevel 1 set _Ecode_main= ERROR_SET_REG & goto CrashSet
-if errorlevel 0 echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]ÉèÖÃ±äÁ¿ _Ecode_DLL_Engine_Software Íê³É>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
+if errorlevel 0 echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]è®¾ç½®å˜é‡ _Ecode_DLL_Engine_Software å®Œæˆ>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
 :Text
 cls
 echo %_line%
 echo           App ID:10
-echo           Èí¼ş°æ±¾£º1.0.Pre-res For Steam.
-echo           ÓÎÏ·°æ±¾: cstrike-Half-Life 25th Anniversary update
+echo           è½¯ä»¶ç‰ˆæœ¬ï¼š1.0.Pre-res For Steam.
+echo           æ¸¸æˆç‰ˆæœ¬: cstrike-Half-Life 25th Anniversary update
 echo           build ID:12835476
-echo           %_ver% Æô¶¯³ÌĞò
+echo           %_ver% å¯åŠ¨ç¨‹åº
 echo           Edit by Rainbow-SPY
-echo           QQ:2716842407  ÓĞbugÇë¼°Ê±·´À¡
+echo           QQ:2716842407  æœ‰bugè¯·åŠæ—¶åé¦ˆ
 echo %_line%
 :ChooseCDKEY
-mshta vbscript:msgbox("Îª±ÜÃâ±»Valve¼ì²âÏàÍ¬CD-KEY£¬¾ÖÓòÍøÍæ¼ÒÇëÑ¡Ôñ²»Í¬CD-KEY½øĞĞÁª»úÓÎÍæ",0+64+4096+65536,"%_ver%Æô¶¯³ÌĞò")(window.close)
-title [SPY] Ñ¡ÔñÄãÊ¹ÓÃµÄCD-KEY......
+mshta vbscript:msgbox("ä¸ºé¿å…è¢«Valveæ£€æµ‹ç›¸åŒCD-KEYï¼Œå±€åŸŸç½‘ç©å®¶è¯·é€‰æ‹©ä¸åŒCD-KEYè¿›è¡Œè”æœºæ¸¸ç©",0+64+4096+65536,"%_ver%å¯åŠ¨ç¨‹åº")(window.close)
+title [SPY] é€‰æ‹©ä½ ä½¿ç”¨çš„CD-KEY......
 echo %_line%
-echo Ñ¡ÔñÄãÊ¹ÓÃµÄCD-KEY......
+echo é€‰æ‹©ä½ ä½¿ç”¨çš„CD-KEY......
 echo.
-echo ÉèÖÃ[  CDKEY1  ]  ÊäÈë [1]
-echo ÉèÖÃ[  CDKEY2  ]  ÊäÈë [2]
-echo ÉèÖÃ[  CDKEY3  ]  ÊäÈë [3]
-echo ÉèÖÃ[  CDKEY4  ]  ÊäÈë [4]
-echo ÉèÖÃ[  CDKEY5  ]  ÊäÈë [5]
-echo ÉèÖÃ[  CDKEY6  ]  ÊäÈë [6]
-echo ÉèÖÃ[  CDKEY7  ]  ÊäÈë [7]
-echo ÉèÖÃ[  CDKEY8  ]  ÊäÈë [8]
-echo ÉèÖÃ[  CDKEY9  ]  ÊäÈë [9]
-echo ÉèÖÃ[  CDKE10  ]  ÊäÈë [0]
+echo è®¾ç½®[  CDKEY1  ]  è¾“å…¥ [1]
+echo è®¾ç½®[  CDKEY2  ]  è¾“å…¥ [2]
+echo è®¾ç½®[  CDKEY3  ]  è¾“å…¥ [3]
+echo è®¾ç½®[  CDKEY4  ]  è¾“å…¥ [4]
+echo è®¾ç½®[  CDKEY5  ]  è¾“å…¥ [5]
+echo è®¾ç½®[  CDKEY6  ]  è¾“å…¥ [6]
+echo è®¾ç½®[  CDKEY7  ]  è¾“å…¥ [7]
+echo è®¾ç½®[  CDKEY8  ]  è¾“å…¥ [8]
+echo è®¾ç½®[  CDKEY9  ]  è¾“å…¥ [9]
+echo è®¾ç½®[  CDKE10  ]  è¾“å…¥ [0]
 echo %_line%
 echo.
-echo *SteamÕı°æÓÃ»§ÔÚÓÎÍæCounter-Strike 1.6Ê±ÈÔĞèÌí¼ÓCD-KEY
+echo *Steamæ­£ç‰ˆç”¨æˆ·åœ¨æ¸¸ç©Counter-Strike 1.6æ—¶ä»éœ€æ·»åŠ CD-KEY
 echo.
-choice /c 1234567890 /n /m "ÄãµÄÑ¡Ôñ£º"
+choice /c 1234567890 /n /m "ä½ çš„é€‰æ‹©ï¼š"
 set _el=%errorlevel% 
 if %_el%==1  goto CDKEY1
 if %_el%==2  goto CDKEY2
@@ -137,68 +137,68 @@ if %_el%==9  goto CDKEY9
 if %_el%==10 goto CDKEY10
 :ChooseWideOrNormal
 cls
-title [SPY] Ñ¡ÔñÓÎÏ··Ö±æÂÊ±ÈÀı......
+title [SPY] é€‰æ‹©æ¸¸æˆåˆ†è¾¨ç‡æ¯”ä¾‹......
 echo %_line%
-echo ÉèÖÃ[ ÆÕÍ¨ 4:3  ]ÊäÈë [1]
-echo ÉèÖÃ[ ¿íÆÁ 16:9 ]ÊäÈë [2]
+echo è®¾ç½®[ æ™®é€š 4:3  ]è¾“å…¥ [1]
+echo è®¾ç½®[ å®½å± 16:9 ]è¾“å…¥ [2]
 echo %_line%
 echo.
-choice /c 12 /n /m "ÄãµÄÑ¡Ôñ£º"
+choice /c 12 /n /m "ä½ çš„é€‰æ‹©ï¼š"
 set _el=%errorlevel% 
 if %_el%==1 goto 43Screen
 if %_el%==2 goto 169Screen
 :ChooseScreenWindow
 cls
-title [SPY] ÉèÖÃÓÎÏ·´°¿Ú......
+title [SPY] è®¾ç½®æ¸¸æˆçª—å£......
 echo %_line%
-echo ÉèÖÃ[ ÓÎÏ·´°¿Ú»¯  ]ÊäÈë [1]
-echo ÉèÖÃ[ ÓÎÏ·È«ÆÁ»¯  ]ÊäÈë [2]
+echo è®¾ç½®[ æ¸¸æˆçª—å£åŒ–  ]è¾“å…¥ [1]
+echo è®¾ç½®[ æ¸¸æˆå…¨å±åŒ–  ]è¾“å…¥ [2]
 echo %_line%
 echo.
-choice /c 12 /n /m "ÄãµÄÑ¡Ôñ£º"
+choice /c 12 /n /m "ä½ çš„é€‰æ‹©ï¼š"
 set _el=%errorlevel% 
 if %_el%==1 goto ScreenWindow
 if %_el%==2 goto NoScreenWindow
 :ChooseScreenBPP
 cls
-title [SPY] Ñ¡ÔñÓÎÏ·µÄÑÕÉ«ÖÊÁ¿......
+title [SPY] é€‰æ‹©æ¸¸æˆçš„é¢œè‰²è´¨é‡......
 echo %_line%
-echo ÉèÖÃ[ ÑÕÉ«ÖÊÁ¿ 32Î»  ]ÊäÈë [1]
-echo ÉèÖÃ[ ÑÕÉ«ÖÊÁ¿ 16Î»  ]ÊäÈë [2]
+echo è®¾ç½®[ é¢œè‰²è´¨é‡ 32ä½  ]è¾“å…¥ [1]
+echo è®¾ç½®[ é¢œè‰²è´¨é‡ 16ä½  ]è¾“å…¥ [2]
 echo %_line%
 echo.
-choice /c 12 /n /m "ÄãµÄÑ¡Ôñ£º"
+choice /c 12 /n /m "ä½ çš„é€‰æ‹©ï¼š"
 set _el=%errorlevel% 
 if %_el%==1 goto 32xScreenBPP
 if %_el%==2 goto 16xScreenBPP
 :ChooseEngine
 cls
-title [SPY] Ñ¡ÔñÓÎÏ·ÒıÇæ......
+title [SPY] é€‰æ‹©æ¸¸æˆå¼•æ“......
 echo %_line%
-echo ÉèÖÃ[ äÖÈ¾Ä£Ê½ Èí¼ş¼ÓËÙ ]ÊäÈë [1]
-echo ÉèÖÃ[ äÖÈ¾Ä£Ê½ OpenGL   ]ÊäÈë [2]
-echo ÉèÖÃ[ äÖÈ¾Ä£Ê½ D3D*     ]ÊäÈë [3]
+echo è®¾ç½®[ æ¸²æŸ“æ¨¡å¼ è½¯ä»¶åŠ é€Ÿ ]è¾“å…¥ [1]
+echo è®¾ç½®[ æ¸²æŸ“æ¨¡å¼ OpenGL   ]è¾“å…¥ [2]
+echo è®¾ç½®[ æ¸²æŸ“æ¨¡å¼ D3D*     ]è¾“å…¥ [3]
 echo %_line%
 echo.
-echo *SteamÕı°æÔÚ×îĞÂ°æ±¾ÖĞ²»Ö§³ÖDirect3DÒıÇæäÖÈ¾
+echo *Steamæ­£ç‰ˆåœ¨æœ€æ–°ç‰ˆæœ¬ä¸­ä¸æ”¯æŒDirect3Då¼•æ“æ¸²æŸ“
 echo.
-choice /c 123 /n /m "ÄãµÄÑ¡Ôñ£º"
+choice /c 123 /n /m "ä½ çš„é€‰æ‹©ï¼š"
 set _el=%errorlevel% 
 if %_el%==1 goto SoftwareEngine
 if %_el%==2 goto OpenGLEngine
 if %_el%==3 goto Direct3DEngine
 :43Screen
 cls
-echo&title [SPY] Ñ¡ÔñÄãµÄ·Ö±æÂÊ......
-echo ÉèÖÃ[  640x480  ]  ÊäÈë [1]
-echo ÉèÖÃ[  720x576  ]  ÊäÈë [2]
-echo ÉèÖÃ[  800x600  ]  ÊäÈë [3]
-echo ÉèÖÃ[  1024x768 ]  ÊäÈë [4]
-echo ÉèÖÃ[  1152x864 ]  ÊäÈë [5]
-echo ÉèÖÃ[  1280x960 ]  ÊäÈë [6]
-echo ÉèÖÃ[  1280x1024]  ÊäÈë [7]
+echo&title [SPY] é€‰æ‹©ä½ çš„åˆ†è¾¨ç‡......
+echo è®¾ç½®[  640x480  ]  è¾“å…¥ [1]
+echo è®¾ç½®[  720x576  ]  è¾“å…¥ [2]
+echo è®¾ç½®[  800x600  ]  è¾“å…¥ [3]
+echo è®¾ç½®[  1024x768 ]  è¾“å…¥ [4]
+echo è®¾ç½®[  1152x864 ]  è¾“å…¥ [5]
+echo è®¾ç½®[  1280x960 ]  è¾“å…¥ [6]
+echo è®¾ç½®[  1280x1024]  è¾“å…¥ [7]
 echo.
-choice /c 1234567 /n /m "ÄãµÄÑ¡Ôñ£º"
+choice /c 1234567 /n /m "ä½ çš„é€‰æ‹©ï¼š"
 set _el=%errorlevel% 
 if %_el%==1 goto 640x480
 if %_el%==2 goto 720x576
@@ -209,15 +209,15 @@ if %_el%==6 goto 1280x960
 if %_el%==7 goto 1280x1024
 :169Screen
 cls
-title [SPY] Ñ¡ÔñÄãµÄ·Ö±æÂÊ......
-echo ÉèÖÃ[  1280x720  ]  ÊäÈë [1]
-echo ÉèÖÃ[  1280x800  ]  ÊäÈë [2]
-echo ÉèÖÃ[  1440x900  ]  ÊäÈë [3]
-echo ÉèÖÃ[  1600x900  ]  ÊäÈë [4]
-echo ÉèÖÃ[  1682x1050 ]  ÊäÈë [5]
-echo ÉèÖÃ[  1920x1080 ]  ÊäÈë [6]
+title [SPY] é€‰æ‹©ä½ çš„åˆ†è¾¨ç‡......
+echo è®¾ç½®[  1280x720  ]  è¾“å…¥ [1]
+echo è®¾ç½®[  1280x800  ]  è¾“å…¥ [2]
+echo è®¾ç½®[  1440x900  ]  è¾“å…¥ [3]
+echo è®¾ç½®[  1600x900  ]  è¾“å…¥ [4]
+echo è®¾ç½®[  1682x1050 ]  è¾“å…¥ [5]
+echo è®¾ç½®[  1920x1080 ]  è¾“å…¥ [6]
 echo.
-choice /c 123456 /n /m "ÄãµÄÑ¡Ôñ£º"
+choice /c 123456 /n /m "ä½ çš„é€‰æ‹©ï¼š"
 set _el=%errorlevel% 
 if %_el%==1 goto 1280x720
 if %_el%==2 goto 1280x800
@@ -277,7 +277,7 @@ if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashS
 if errorlevel 0 echo [CD-KEY]>>%_#APPDATA#%\cd-key.ini & echo CD_KEY=5ZQ2A-NI239-4F4K7-H9N8Q-VTSYT>>%_#APPDATA#%\cd-key.ini 
 goto ChooseWideOrNormal
 :640x480
-::4:3 640x480·Ö±æÂÊÓÎÏ·
+::4:3 640x480åˆ†è¾¨ç‡æ¸¸æˆ
 reg add HKEY_CURRENT_USER\Software\Valve\Half-Life\Settings /v ScreenHeight /t REG_DWORD /f /d "480" >NUL 2>NUL
 if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashSet
 if errorlevel 0 echo [Video]>>%_#APPDATA#%\video.ini & echo Height=480>>%_#APPDATA#%\video.ini
@@ -286,7 +286,7 @@ if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashS
 if errorlevel 0 echo [Video]>>%_#APPDATA#%\video.ini & echo Width=640>>%_#APPDATA#%\video.ini
 goto ChooseScreenWindow
 :720x576
-::4:3 720x576·Ö±æÂÊÓÎÏ·
+::4:3 720x576åˆ†è¾¨ç‡æ¸¸æˆ
 reg add HKEY_CURRENT_USER\Software\Valve\Half-Life\Settings /v ScreenHeight /t REG_DWORD /f /d "576" >NUL 2>NUL
 if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashSet
 if errorlevel 0 echo [Video]>>%_#APPDATA#%\video.ini & echo Height=576>>%_#APPDATA#%\video.ini
@@ -295,7 +295,7 @@ if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashS
 if errorlevel 0 echo [Video]>>%_#APPDATA#%\video.ini & echo Width=720>>%_#APPDATA#%\video.ini
 goto ChooseScreenWindow
 :800x600
-::4:3 800x600·Ö±æÂÊÓÎÏ·
+::4:3 800x600åˆ†è¾¨ç‡æ¸¸æˆ
 reg add HKEY_CURRENT_USER\Software\Valve\Half-Life\Settings /v ScreenHeight /t REG_DWORD /f /d "600" >NUL 2>NUL
 if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashSet
 if errorlevel 0 echo [Video]>>%_#APPDATA#%\video.ini & echo Height=600>>%_#APPDATA#%\video.ini
@@ -304,7 +304,7 @@ if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashS
 if errorlevel 0 echo [Video]>>%_#APPDATA#%\video.ini & echo Width=800>>%_#APPDATA#%\video.ini
 goto ChooseScreenWindow
 :1024x768
-::4:3 1024x768·Ö±æÂÊÓÎÏ·
+::4:3 1024x768åˆ†è¾¨ç‡æ¸¸æˆ
 reg add HKEY_CURRENT_USER\Software\Valve\Half-Life\Settings /v ScreenHeight /t REG_DWORD /f /d "768" >NUL 2>NUL
 if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashSet
 if errorlevel 0 echo [Video]>>%_#APPDATA#%\video.ini & echo Height=768>>%_#APPDATA#%\video.ini
@@ -313,7 +313,7 @@ if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashS
 if errorlevel 0 echo [Video]>>%_#APPDATA#%\video.ini & echo Width=1024>>%_#APPDATA#%\video.ini
 goto ChooseScreenWindow
 :1152x864
-::4:3 1152x864·Ö±æÂÊÓÎÏ·
+::4:3 1152x864åˆ†è¾¨ç‡æ¸¸æˆ
 reg add HKEY_CURRENT_USER\Software\Valve\Half-Life\Settings /v ScreenHeight /t REG_DWORD /f /d "864" >NUL 2>NUL
 if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashSet
 if errorlevel 0 echo [Video]>>%_#APPDATA#%\video.ini & echo Height=864>>%_#APPDATA#%\video.ini
@@ -322,7 +322,7 @@ if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashS
 if errorlevel 0 echo [Video]>>%_#APPDATA#%\video.ini & echo Width=1152>>%_#APPDATA#%\video.ini
 goto ChooseScreenWindow
 :1280x960
-::4:3 1280x960·Ö±æÂÊÓÎÏ·
+::4:3 1280x960åˆ†è¾¨ç‡æ¸¸æˆ
 reg add HKEY_CURRENT_USER\Software\Valve\Half-Life\Settings /v ScreenHeight /t REG_DWORD /f /d "960" >NUL 2>NUL
 if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashSet
 if errorlevel 0 echo [Video]>>%_#APPDATA#%\video.ini & echo Height=960>>%_#APPDATA#%\video.ini
@@ -331,7 +331,7 @@ if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashS
 if errorlevel 0 echo [Video]>>%_#APPDATA#%\video.ini & echo Width=1280>>%_#APPDATA#%\video.ini
 goto ChooseScreenWindow
 :1280x1024
-::4:3 1280x1024·Ö±æÂÊÓÎÏ·
+::4:3 1280x1024åˆ†è¾¨ç‡æ¸¸æˆ
 reg add HKEY_CURRENT_USER\Software\Valve\Half-Life\Settings /v ScreenHeight /t REG_DWORD /f /d "1024" >NUL 2>NUL
 if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashSet
 if errorlevel 0 echo [Video]>>%_#APPDATA#%\video.ini & echo Height=1024>>%_#APPDATA#%\video.ini
@@ -340,7 +340,7 @@ if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashS
 if errorlevel 0 echo [Video]>>%_#APPDATA#%\video.ini & echo Width=1280>>%_#APPDATA#%\video.ini
 goto ChooseScreenWindow
 :1280x720
-::16:9 1280x720·Ö±æÂÊÓÎÏ·
+::16:9 1280x720åˆ†è¾¨ç‡æ¸¸æˆ
 reg add HKEY_CURRENT_USER\Software\Valve\Half-Life\Settings /v ScreenHeight /t REG_DWORD /f /d "720" >NUL 2>NUL
 if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashSet
 if errorlevel 0 echo [Video]>>%_#APPDATA#%\video.ini & echo Height=720>>%_#APPDATA#%\video.ini
@@ -349,7 +349,7 @@ if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashS
 if errorlevel 0 echo [Video]>>%_#APPDATA#%\video.ini & echo Width=1280>>%_#APPDATA#%\video.ini
 goto ChooseScreenWindow
 :1280x800
-::16:9 1280x800·Ö±æÂÊÓÎÏ·
+::16:9 1280x800åˆ†è¾¨ç‡æ¸¸æˆ
 reg add HKEY_CURRENT_USER\Software\Valve\Half-Life\Settings /v ScreenHeight /t REG_DWORD /f /d "800" >NUL 2>NUL
 if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashSet
 if errorlevel 0 echo [Video]>>%_#APPDATA#%\video.ini & echo Height=800>>%_#APPDATA#%\video.ini
@@ -358,7 +358,7 @@ if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashS
 if errorlevel 0 echo [Video]>>%_#APPDATA#%\video.ini & echo Width=1280>>%_#APPDATA#%\video.ini
 goto ChooseScreenWindow
 :1440x900
-::16:9 1440x900·Ö±æÂÊÓÎÏ·
+::16:9 1440x900åˆ†è¾¨ç‡æ¸¸æˆ
 reg add HKEY_CURRENT_USER\Software\Valve\Half-Life\Settings /v ScreenHeight /t REG_DWORD /f /d "900" >NUL 2>NUL
 if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashSet
 if errorlevel 0 echo [Video]>>%_#APPDATA#%\video.ini & echo Height=900>>%_#APPDATA#%\video.ini
@@ -367,7 +367,7 @@ if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashS
 if errorlevel 0 echo [Video]>>%_#APPDATA#%\video.ini & echo Width=1440>>%_#APPDATA#%\video.ini
 goto ChooseScreenWindow
 :1600x900
-::16:9 1600x900·Ö±æÂÊÓÎÏ·
+::16:9 1600x900åˆ†è¾¨ç‡æ¸¸æˆ
 reg add HKEY_CURRENT_USER\Software\Valve\Half-Life\Settings /v ScreenHeight /t REG_DWORD /f /d "900" >NUL 2>NUL
 if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashSet
 if errorlevel 0 echo [Video]>>%_#APPDATA#%\video.ini & echo Height=900>>%_#APPDATA#%\video.ini
@@ -376,7 +376,7 @@ if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashS
 if errorlevel 0 echo [Video]>>%_#APPDATA#%\video.ini & echo Width=1600>>%_#APPDATA#%\video.ini
 goto ChooseScreenWindow
 :1682x1050
-::16:9 1682x1050·Ö±æÂÊÓÎÏ·
+::16:9 1682x1050åˆ†è¾¨ç‡æ¸¸æˆ
 reg add HKEY_CURRENT_USER\Software\Valve\Half-Life\Settings /v ScreenHeight /t REG_DWORD /f /d "1050" >NUL 2>NUL
 if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashSet
 if errorlevel 0 echo [Video]>>%_#APPDATA#%\video.ini & echo Height=1050>>%_#APPDATA#%\video.ini
@@ -385,7 +385,7 @@ if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashS
 if errorlevel 0 echo [Video]>>%_#APPDATA#%\video.ini & echo Width=1682>>%_#APPDATA#%\video.ini
 goto ChooseScreenWindow
 :1920x1080
-::1920x1080·Ö±æÂÊÓÎÏ·
+::1920x1080åˆ†è¾¨ç‡æ¸¸æˆ
 reg add HKEY_CURRENT_USER\Software\Valve\Half-Life\Settings /v ScreenHeight /t REG_DWORD /f /d "1080" >NUL 2>NUL
 if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashSet
 if errorlevel 0 echo [Video]>>%_#APPDATA#%\video.ini & echo Height=1080>>%_#APPDATA#%\video.ini
@@ -394,37 +394,37 @@ if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashS
 if errorlevel 0 echo [Video]>>%_#APPDATA#%\video.ini & echo Width=1920>>%_#APPDATA#%\video.ini
 goto ChooseScreenWindow
 :ScreenWindow
-::´°¿Ú»¯
+::çª—å£åŒ–
 reg add HKEY_CURRENT_USER\Software\Valve\Half-Life\Settings /v ScreenWindowed /t REG_DWORD /f /d "1" >NUL 2>NUL
 if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashSet
 if errorlevel 0 echo Window=True>>%_#APPDATA#%\video.ini
 goto ChooseScreenBPP
 :NoScreenWindow
-::È«ÆÁ»¯
+::å…¨å±åŒ–
 reg add HKEY_CURRENT_USER\Software\Valve\Half-Life\Settings /v ScreenWindowed /t REG_DWORD /f /d "0" >NUL 2>NUL
 if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashSet
 if errorlevel 0 echo Window=False>>%_#APPDATA#%\video.ini
 goto ChooseScreenBPP
 :32xScreenBPP
-::ÑÕÉ«ÖÊÁ¿>>>×î¸ß[32Î»]
+::é¢œè‰²è´¨é‡>>>æœ€é«˜[32ä½]
 reg add HKEY_CURRENT_USER\Software\Valve\Half-Life\Settings /v ScreenBPP /t REG_DWORD /f /d "32" >NUL 2>NUL
 if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashSet
 if errorlevel 0 echo BPP=32>>%_#APPDATA#%\video.ini
 goto ChooseEngine
 :16xScreenBPP
-::ÑÕÉ«ÖÊÁ¿>>>ÖĞµÈ[16Î»]
+::é¢œè‰²è´¨é‡>>>ä¸­ç­‰[16ä½]
 reg add HKEY_CURRENT_USER\Software\Valve\Half-Life\Settings /v ScreenBPP /t REG_DWORD /f /d "16" >NUL 2>NUL
 if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashSet
 if errorlevel 0 echo BPP=16>>%_#APPDATA#%\video.ini
 goto ChooseEngine
 :SoftwareEngine
-::äÖÈ¾Ä£Ê½>>>Èí¼ş¼ÓËÙ
+::æ¸²æŸ“æ¨¡å¼>>>è½¯ä»¶åŠ é€Ÿ
 reg add HKEY_CURRENT_USER\Software\Valve\Half-Life\Settings /v EngineDLL /t REG_SZ /f /d "sw.dll" >NUL 2>NUL
 if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashSet
 if errorlevel 0 echo [Engine]>>%_#APPDATA#%\engine.ini & echo Direct3D=False>>%_#APPDATA#%\engine.ini & echo OpenGL=False>>%_#APPDATA#%\engine.ini & echo SoftwareEngine=True>>%_#APPDATA#%\engine.ini
 goto RunningCstrikeandEND
 :Direct3DEngine
-::äÖÈ¾Ä£Ê½>>>D3D
+::æ¸²æŸ“æ¨¡å¼>>>D3D
 reg add HKEY_CURRENT_USER\Software\Valve\Half-Life\Settings /v EngineDLL /t REG_SZ /f /d "hw.dll" >NUL 2>NUL
 if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashSet
 if errorlevel 0 echo.
@@ -433,7 +433,7 @@ if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashS
 if errorlevel 0 echo [Engine]>>%_#APPDATA#%\engine.ini & echo Direct3D=True>>%_#APPDATA#%\engine.ini & echo OpenGL=False>>%_#APPDATA#%\engine.ini & echo SoftwareEngine=False>>%_#APPDATA#%\engine.ini
 goto RunningCstrikeandEND
 :OpenGLEngine
-::äÖÈ¾Ä£Ê½>>>OpenGL
+::æ¸²æŸ“æ¨¡å¼>>>OpenGL
 reg add HKEY_CURRENT_USER\Software\Valve\Half-Life\Settings /v EngineDLL /t REG_SZ /f /d "hw.dll" >NUL 2>NUL
 if errorlevel 1 set _Ecode_main= ERROR_INVALID_HANDLE(0x0000003f5) & goto CrashSet
 if errorlevel 0 echo.
@@ -444,8 +444,8 @@ goto RunningCstrikeandEND
 :RunningCstrikeandEND
 cls
 color 0a
-title ÓÎÏ·ÒÑ³É¹¦Æô¶¯
-echo ÓÎÏ·ÒÑ³É¹¦Æô¶¯
+title æ¸¸æˆå·²æˆåŠŸå¯åŠ¨
+echo æ¸¸æˆå·²æˆåŠŸå¯åŠ¨
 echo [load]>%_#APPDATA#%\load.ini
 echo load=True>%_#APPDATA#%\load.ini
 "hl.exe" -steam -game cstrike
@@ -454,8 +454,8 @@ exit
 :loadRunningCstrikeandEND
 cls
 color 0a
-title ÓÎÏ·ÒÑ³É¹¦Æô¶¯
-echo ÓÎÏ·ÒÑ³É¹¦Æô¶¯
+title æ¸¸æˆå·²æˆåŠŸå¯åŠ¨
+echo æ¸¸æˆå·²æˆåŠŸå¯åŠ¨
 "hl.exe" -steam -game cstrike
 exit
 
@@ -476,26 +476,27 @@ exit
 pause
 exit
 :CrashCer
-mshta vbscript:msgbox(Replace("Ó¦ÓÃ³ÌĞò·¢ÉúÒì³£ (%_Ecode_main%).\n£¬Ö¤Êé°²×°Ê§°Ü£¬ÎŞ·¨ÑéÖ¤Ö¤ÊéµÄÍêÕûĞÔ¡£\n\nÒªÖÕÖ¹³ÌĞò£¬Çëµ¥»÷[È·¶¨]¡£","\n",vbCrLf),0+16+4096+65536,"%_ver%Æô¶¯³ÌĞò - Ó¦ÓÃ³ÌĞò´íÎó")(window.close)
+mshta vbscript:msgbox(Replace("åº”ç”¨ç¨‹åºå‘ç”Ÿå¼‚å¸¸ (%_Ecode_main%).\nï¼Œè¯ä¹¦å®‰è£…å¤±è´¥ï¼Œæ— æ³•éªŒè¯è¯ä¹¦çš„å®Œæ•´æ€§ã€‚\n\nè¦ç»ˆæ­¢ç¨‹åºï¼Œè¯·å•å‡»[ç¡®å®š]ã€‚","\n",vbCrLf),0+16+4096+65536,"%_ver%å¯åŠ¨ç¨‹åº - åº”ç”¨ç¨‹åºé”™è¯¯")(window.close)
 exit
 :CrashSet
-mshta vbscript:msgbox(Replace("Ó¦ÓÃ³ÌĞò·¢ÉúÒì³£ (%_Ecode_main%).\nÎ´Öª´íÎó£¬Ğ´Èë×¢²á±íÎŞĞ§¡£\n\nÒªÖÕÖ¹³ÌĞò£¬Çëµ¥»÷[È·¶¨]¡£","\n",vbCrLf),0+16+4096+65536,"%_ver%Æô¶¯³ÌĞò - Ó¦ÓÃ³ÌĞò´íÎó")(window.close)
+mshta vbscript:msgbox(Replace("åº”ç”¨ç¨‹åºå‘ç”Ÿå¼‚å¸¸ (%_Ecode_main%).\næœªçŸ¥é”™è¯¯ï¼Œå†™å…¥æ³¨å†Œè¡¨æ— æ•ˆã€‚\n\nè¦ç»ˆæ­¢ç¨‹åºï¼Œè¯·å•å‡»[ç¡®å®š]ã€‚","\n",vbCrLf),0+16+4096+65536,"%_ver%å¯åŠ¨ç¨‹åº - åº”ç”¨ç¨‹åºé”™è¯¯")(window.close)
 exit
 :CrashHLTask
-mshta vbscript:msgbox(Replace("Ó¦ÓÃ³ÌĞò·¢ÉúÒì³£%_Ecode_main%.\nCounter-Strike»òHalf-LifeÕıÔÚÔËĞĞ£¬ÎŞ·¨¸üĞÂÅäÖÃ.\n\nÒªÖÕÖ¹³ÌĞò£¬Çëµ¥»÷[È·¶¨]¡£","\n",vbCrLf),0+16+4096+65536,"%_ver%Æô¶¯³ÌĞò - Ó¦ÓÃ³ÌĞò´íÎó")(window.close)
+mshta vbscript:msgbox(Replace("åº”ç”¨ç¨‹åºå‘ç”Ÿå¼‚å¸¸%_Ecode_main%.\nCounter-Strikeæˆ–Half-Lifeæ­£åœ¨è¿è¡Œï¼Œæ— æ³•æ›´æ–°é…ç½®.\n\nè¦ç»ˆæ­¢ç¨‹åºï¼Œè¯·å•å‡»[ç¡®å®š]ã€‚","\n",vbCrLf),0+16+4096+65536,"%_ver%å¯åŠ¨ç¨‹åº - åº”ç”¨ç¨‹åºé”™è¯¯")(window.close)
 exit
 :CrashCstrikeTask
-mshta vbscript:msgbox(Replace("Ó¦ÓÃ³ÌĞò·¢ÉúÒì³£%_Ecode_main%.\nCounter-StrikeÕıÔÚÔËĞĞ£¬ÎŞ·¨¸üĞÂÅäÖÃ.\n\nÒªÖÕÖ¹³ÌĞò£¬Çëµ¥»÷[È·¶¨]¡£","\n",vbCrLf),0+16+4096+65536,"%_ver%Æô¶¯³ÌĞò - Ó¦ÓÃ³ÌĞò´íÎó")(window.close)
+mshta vbscript:msgbox(Replace("åº”ç”¨ç¨‹åºå‘ç”Ÿå¼‚å¸¸%_Ecode_main%.\nCounter-Strikeæ­£åœ¨è¿è¡Œï¼Œæ— æ³•æ›´æ–°é…ç½®.\n\nè¦ç»ˆæ­¢ç¨‹åºï¼Œè¯·å•å‡»[ç¡®å®š]ã€‚","\n",vbCrLf),0+16+4096+65536,"%_ver%å¯åŠ¨ç¨‹åº - åº”ç”¨ç¨‹åºé”™è¯¯")(window.close)
 exit
 :CrashHLexe
-mshta vbscript:msgbox(Replace("Ó¦ÓÃ³ÌĞò·¢ÉúÒì³£ (%_Ecode_main%).\nÕÒ²»µ½hl.exe£¬³ÌĞò±»ÆÈÖĞÖ¹.\n\nÒªÖÕÖ¹³ÌĞò£¬Çëµ¥»÷[È·¶¨]¡£","\n",vbCrLf),0+16+4096+65536,"%_ver%Æô¶¯³ÌĞò - Ó¦ÓÃ³ÌĞò´íÎó")(window.close)
+mshta vbscript:msgbox(Replace("åº”ç”¨ç¨‹åºå‘ç”Ÿå¼‚å¸¸ (%_Ecode_main%).\næ‰¾ä¸åˆ°hl.exeï¼Œç¨‹åºè¢«è¿«ä¸­æ­¢.\n\nè¦ç»ˆæ­¢ç¨‹åºï¼Œè¯·å•å‡»[ç¡®å®š]ã€‚","\n",vbCrLf),0+16+4096+65536,"%_ver%å¯åŠ¨ç¨‹åº - åº”ç”¨ç¨‹åºé”™è¯¯")(window.close)
 exit
 :CrashEngine-SW.DLL
-mshta vbscript:msgbox(Replace("Ó¦ÓÃ³ÌĞò·¢ÉúÒì³£ (%_Ecode_main%).\nÕÒ²»µ½sw.dll£¬ÓÎÏ·ÒıÇæÒì³£.\n\nÒªÖÕÖ¹³ÌĞò£¬Çëµ¥»÷[È·¶¨]¡£","\n",vbCrLf),0+16+4096+65536,"%_ver%Æô¶¯³ÌĞò - Ó¦ÓÃ³ÌĞò´íÎó")(window.close)
+mshta vbscript:msgbox(Replace("åº”ç”¨ç¨‹åºå‘ç”Ÿå¼‚å¸¸ (%_Ecode_main%).\næ‰¾ä¸åˆ°sw.dllï¼Œæ¸¸æˆå¼•æ“å¼‚å¸¸.\n\nè¦ç»ˆæ­¢ç¨‹åºï¼Œè¯·å•å‡»[ç¡®å®š]ã€‚","\n",vbCrLf),0+16+4096+65536,"%_ver%å¯åŠ¨ç¨‹åº - åº”ç”¨ç¨‹åºé”™è¯¯")(window.close)
 exit
 :CrashEngine-HW.DLL
-mshta vbscript:msgbox(Replace("Ó¦ÓÃ³ÌĞò·¢ÉúÒì³£ (%_Ecode_main%).\nÕÒ²»µ½hw.dll£¬ÓÎÏ·ÒıÇæÒì³£.\n\nÒªÖÕÖ¹³ÌĞò£¬Çëµ¥»÷[È·¶¨]¡£","\n",vbCrLf),0+16+4096+65536,"%_ver%Æô¶¯³ÌĞò - Ó¦ÓÃ³ÌĞò´íÎó")(window.close)
+mshta vbscript:msgbox(Replace("åº”ç”¨ç¨‹åºå‘ç”Ÿå¼‚å¸¸ (%_Ecode_main%).\næ‰¾ä¸åˆ°hw.dllï¼Œæ¸¸æˆå¼•æ“å¼‚å¸¸.\n\nè¦ç»ˆæ­¢ç¨‹åºï¼Œè¯·å•å‡»[ç¡®å®š]ã€‚","\n",vbCrLf),0+16+4096+65536,"%_ver%å¯åŠ¨ç¨‹åº - åº”ç”¨ç¨‹åºé”™è¯¯")(window.close)
 exit
 :CrashClient
-mshta vbscript:msgbox(Replace("Ó¦ÓÃ³ÌĞò·¢ÉúÒì³£ (%_Ecode_main%).\nÕÒ²»µ½client.dll£¬¿Í»§¶Ë´°¿ÚÒì³£.\n\nÒªÖÕÖ¹³ÌĞò£¬Çëµ¥»÷[È·¶¨]¡£","\n",vbCrLf),0+16+4096+65536,"%_ver%Æô¶¯³ÌĞò - Ó¦ÓÃ³ÌĞò´íÎó")(window.close)
+mshta vbscript:msgbox(Replace("åº”ç”¨ç¨‹åºå‘ç”Ÿå¼‚å¸¸ (%_Ecode_main%).\næ‰¾ä¸åˆ°client.dllï¼Œå®¢æˆ·ç«¯çª—å£å¼‚å¸¸.\n\nè¦ç»ˆæ­¢ç¨‹åºï¼Œè¯·å•å‡»[ç¡®å®š]ã€‚","\n",vbCrLf),0+16+4096+65536,"%_ver%å¯åŠ¨ç¨‹åº - åº”ç”¨ç¨‹åºé”™è¯¯")(window.close)
 exit
+
