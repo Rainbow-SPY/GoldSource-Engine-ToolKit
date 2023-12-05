@@ -1,17 +1,22 @@
-:: Counter-Strike-1.6-vSteam build 12835476
 @echo off
-@set _#APPDATA#=%LOCALAPPDATA%\Rainbow-SPY\cstrike\bin
+set _#APPDATA#=%LOCALAPPDATA%\Rainbow-SPY\cstrike\bin
+set _ver=Counter-Strike-1.6-vSteam
 if exist "%_#APPDATA#%\load.ini" (
 		goto loadRunningCstrikeandEND
 		) else (
 		echo.
+		)
+:CheckRes
+if not exist "hl.exe" (
+	goto Crashhalflifeexe
+		) else (
+		goto CheckProcess
 		)
 :CheckProcess
 tasklist /nh|find /i "hl.exe"
 if errorlevel 1 (set _Ecode_Task_HL=False) else (set _Ecode_Task_HL=True & cls & goto CrashHLTask)
 tasklist /nh|find /i "cstrike.exe"
 if errorlevel 1 (set _Ecode_Task_cstrike=False) else (set _Ecode_Appcation_Steam=False & cls & goto CrashCstrikeTask)
-
 :CheckFolder
 if exist "%_#APPDATA#%\Log" (
       	echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]====================启动程序====================>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
@@ -35,10 +40,10 @@ if errorlevel 0 echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]复制 主程序 完�
 copy /y %~dp0\cstrike\resource\RunGameResource.res "%_backup%" >NUL 2>NUL
 if errorlevel 1 set _Ecode_main= ERROR_COPY & goto CrashCopy
 if errorlevel 0 echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]复制 游戏运行资源包 完成>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
-ren "%_backup%\Counter-Strike-1.6-vSteam.bat" "Bak_%date:~0,4%_%date:~5,2%_%date:~8,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%.bat"
+ren "%_backup%\Counter-Strike-v1.6-vSteam.bat" "Bak_%date:~0,4%_%date:~5,2%_%date:~8,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%.bat"
 :CheckFile
 if not exist "hl.exe" (
-	goto CrashHLexe 
+	goto Crashhalflifeexe
 		) else (
 		reg add "HKCU\Software\Rainbow-SPY\Counter-Strike" /v "InstallPlace" /d %~dp0 /f & echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]写入注册表 InstallPlace 完成>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
 		)
@@ -74,9 +79,6 @@ color 0a
 set _el=%errorlevel% 
 if errorlevel 1 set _Ecode_main= ERROR_SET_REG & goto CrashSet
 if errorlevel 0 echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]设置变量 _el 完成>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
-set _ver=Counter-Strike-1.6-vSteam
-if errorlevel 1 set _Ecode_main= ERROR_SET_REG & goto CrashSet
-if errorlevel 0 echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]设置变量 _ver 完成>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
 set _tag=SPY
 if errorlevel 1 set _Ecode_main= ERROR_SET_REG & goto CrashSet
 if errorlevel 0 echo [%time:~0,2%:%time:~3,2%:%time:~6,2%]设置变量 _tag 完成>>"%_#APPDATA#%\Log\Log_%date:~0,4%_%date:~5,2%_%date:~8,2%.log"
@@ -472,11 +474,16 @@ exit
 
 
 
-
+?
 pause
 exit
+:Crashhalflifeexe
+echo ==========================
+echo The Application Error!(??x??? ??x86???)
+mshta vbscript:msgbox("你好像没有把Mod包放进游戏目录里？！",0+64+4096+65536,"%_ver%启动程序 - 应用程序错误")(window.close)
+exit
 :CrashCer
-mshta vbscript:msgbox(Replace("应用程序发生异常 (%_Ecode_main%).\n，证书安装失败，无法验证证书的完整性。\n\n要终止程序，请单击[确定]。","\n",vbCrLf),0+16+4096+65536,"%_ver%启动程序 - 应用程序错误")(window.close)
+mshta vbscript:msgbox(Replace("应用程序发生异常 (%_Ecode_main%).\n证书安装失败，无法验证证书的完整性。\n\n要终止程序，请单击[确定]。","\n",vbCrLf),0+16+4096+65536,"%_ver%启动程序 - 应用程序错误")(window.close)
 exit
 :CrashSet
 mshta vbscript:msgbox(Replace("应用程序发生异常 (%_Ecode_main%).\n未知错误，写入注册表无效。\n\n要终止程序，请单击[确定]。","\n",vbCrLf),0+16+4096+65536,"%_ver%启动程序 - 应用程序错误")(window.close)
@@ -499,4 +506,6 @@ exit
 :CrashClient
 mshta vbscript:msgbox(Replace("应用程序发生异常 (%_Ecode_main%).\n找不到client.dll，客户端窗口异常.\n\n要终止程序，请单击[确定]。","\n",vbCrLf),0+16+4096+65536,"%_ver%启动程序 - 应用程序错误")(window.close)
 exit
-
+:CrashCopy
+mshta vbscript:msgbox(Replace("应用程序发生异常 (%_Ecode_main%).\无法复制文件，请检查资源完整性。\n\n要终止程序，请单击[确定]。","\n",vbCrLf),0+16+4096+65536,"%_ver%启动程序 - 应用程序错误")(window.close)
+exit
