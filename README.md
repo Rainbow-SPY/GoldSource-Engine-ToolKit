@@ -2,7 +2,7 @@
 > 1.1.0 Official version CSGO Mod for Genuine Counter-Strike 1.6
 
 ![Steam](https://ts2.cn.mm.bing.net/th?id=ODLS.8b04067f-1ea4-4385-8b8c-f8f819a33595&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2)[购买Counter-Strike / Buy Counter-Strike On Steam](https://store.steampowered.com/widget/10/)
-![输入图片说明](resourceScreenshot_2023_1228_013235.png)
+![输入图片说明](screenshot20240112.png)
 
 
 ### 联系我们/ Links
