@@ -1,4 +1,4 @@
-<h1 align="center">Gold Engine ToolKit 金源引擎工具箱</h1>
+<h1 align="center">GoldSource Engine ToolKit 金源引擎工具箱</h1>
 
 ### 目录
 1. [GE工具箱简介](./README.md#简介)
@@ -11,22 +11,22 @@
 
 ## 简介
 
-   GE工具箱 , 主要服务于Valve公司于1998年研发的金源引擎 (Gold Engine) , 目前版本 (2.1.0) 支持半衰期 (Half-Life) , 反恐精英 (Counter-Strike) 
+   GE工具箱 , 主要服务于Valve公司于1998年研发的金源引擎 (GoldSource Engine) , 目前版本 (2.1.0) 支持半衰期 (Half-Life) , 反恐精英 (Counter-Strike) 
 
 ## 支持的功能
 > 反恐精英(Counter-Strike)
 - 支持自定义键位
 - 支持汉化游戏
 - 支持中英语音切换(均为官方语音)
-- 支持更换模型(Counter-Strike:Global Offiensive)
-- 支持更换主菜单背景(Counter-Strike 2)
-- Steam正版和互联网盗版均可游玩
+- 支持更换模型(Counter-Strike 1.6 --> Counter-Strike:Global Offiensive)
+- 支持更换主菜单背景(Counter-Strike 1.6 --> Counter-Strike 2)
+- Steam正版和互联网复制版均可游玩
 > 半衰期(Half-Life)
 - 支持汉化游戏
 - 支持中英语音切换(均为官方语音)
-- 支持更换模型(内置)
-- Steam正版和互联网盗版均可游玩
-
+- 支持更换模型(Offical Origin Model --> Offical New Model)
+- Steam正版和互联网复制版均可游玩
+> *暂不支持零点行动版本*
 ## 下载
 
 >**Github国外镜像源**
@@ -76,7 +76,7 @@ GE 工具箱仅限用于金源引擎开发的游戏
 
 GE 工具箱将会使用各类第三方工具来完成其中的一部分任务行为。
 
-GE 工具箱、金源引擎、Gold Engine 均为其各自公司或作者的注册商标。
+GE 工具箱、金源引擎、GoldSource Engine 均为其各自公司或作者的注册商标。
 
 </div>
 
@@ -171,4 +171,4 @@ Copyright (c) M2-Team and Contributors. All rights reserved.
 **所属应用程序组件**(已修改)
 - aria2 高速下载工具，提供全速的下载服务(aria2c.exe)
 
-Copyright (c) aria2 team. All right reserved.[Website](https://github.com/aria2/aria2)
+Copyright (c) aria2 team. All right reserved.[Offical Website](https://github.com/aria2/aria2)
